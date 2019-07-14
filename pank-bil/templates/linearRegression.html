@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row" style="position:relative; top:-20px">
+        <!-- Menu -->
+        <div class="col-lg-2" style="background-color: coral">
+            <h3 style="text-align:center">Menu</h3><br><br>
+            <h5 style="text-align:center;color: black"><a href="{{ url_for('dashboard') }}">Data Visualization</a></h5><br>
+            <h5 style="text-align:center; color: black"><b><a href="{{ url_for('linReg') }}">Naive Bayes</a></b></h5><br>
+
+            <br><br><br>
+        </div>
+        <!-- Menu end -->
+
+        <div class="col-lg-10">
+                <h1 style="text-align:center">naive_bayes</h1>
+                <br><br>
+                <div class="container">
+                    <p>
+                        {% if fileName %}
+                        The dataset you selected is {{ fileName }}
+                        {% else %}
+                        Please select one dataset to perform Linear Regression.
+                        {% endif %}
+                    </p><br>
+                    <form action="" method="POST">
+                        {{ form.hidden_tag() }}
+                        {{ form.fileName(class = 'form-control') }}
+                        <br>
+                        {{ form.submit(class = 'btn btn-success') }}
+                    </form>
+                </div>
+        </div>
+    </div>
+{% endblock %}

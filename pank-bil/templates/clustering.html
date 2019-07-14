@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row" style="position:relative; top:-20px">
+        <!-- Menu -->
+       end -->
+
+        <div class="col-lg-10">
+                <h1 style="text-align:center">Hiierarchical(Agnes)</h1>
+                <br><br>
+                <div class="container">
+                    <p>
+                        {% if clusFile %}
+                        The dataset you selected is {{ clusFile }}
+                        {% else %}
+                        Please select one dataset to perform Agnes
+                        {% endif %}
+                    </p><br>
+                    <form action="" method="POST">
+                        {{ clusForm.hidden_tag() }}
+                        {{ clusForm.clusFile(class = 'form-control') }}
+                        <br>
+                        {{ clusForm.clusSubmit(class = 'btn btn-success') }}
+                    </form>
+                </div>
+        </div>
+    </div>
+{% endblock %}
